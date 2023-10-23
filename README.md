@@ -11,7 +11,7 @@ http://cerdan.github.io INCLUIR LINK
 
 ## Protótipo
 
-https://www.figma.com/  INCLUIR LINK
+https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 
 ## Checklist
 
