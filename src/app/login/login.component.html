@@ -10,7 +10,9 @@
             name="username"
             id="username"
             class="validate"
-          /><label for="username">Usuário</label>
+            mask="SAAAAAAAAAAAAA||000.000.000-00"
+            [dropSpecialCharacters]="false"
+          /><label for="username">Usuário (Nome ou CPF)</label>
         </div>
     </div>
     <div class="row">
