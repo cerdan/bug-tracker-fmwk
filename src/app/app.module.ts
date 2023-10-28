@@ -8,6 +8,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { TicketsComponent } from './tickets/tickets.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TicketComponent } from './ticket/ticket.component';
     HeaderComponent,
     LandingComponent,
     ProfileComponent,
-    TicketComponent
+    TicketComponent,
+    TicketsComponent
   ],
   imports: [
     BrowserModule,
