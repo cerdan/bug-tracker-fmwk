@@ -9,6 +9,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TicketComponent } from './shared/ticket/ticket.component';
 import { TicketsComponent } from './tickets/tickets.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TicketsComponent } from './tickets/tickets.component';
     LandingComponent,
     ProfileComponent,
     TicketComponent,
-    TicketsComponent
+    TicketsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
