@@ -9,6 +9,8 @@ import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 })
 export class HeaderComponent implements AfterViewInit{
   @ViewChild('mobile') sideNav?: ElementRef;
+  
+  userLogged : boolean = false;
 
   ngAfterViewInit(): void {
     M.Sidenav.init(this.sideNav?.nativeElement, {edge:'right'});
