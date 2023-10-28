@@ -15,4 +15,13 @@ export class HeaderComponent implements AfterViewInit{
   ngAfterViewInit(): void {
     M.Sidenav.init(this.sideNav?.nativeElement, {edge:'right'});
   }
+
+  onClickLogin(e : Event) : void{
+    this.userLogged = true;
+    console.log("Login");
+  }
+
+  onClickLogout(e : Event) : void{
+    this.userLogged = false;
+  }
 }
