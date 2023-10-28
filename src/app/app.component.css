@@ -1,8 +1,18 @@
+:root {
+  --dark-purple: #311b92;
+  --med-purple: #512da8;
+  --light-purple: #ede7f6;
+  --dark-green: #33691e;
+  --med-green: #c5e1a5;
+  --light-green: #f1f8e9;
+}
+
 :host {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 main {
-    flex: 1 0 auto;
-} 
+  flex: 1 0 auto;
+}
+
