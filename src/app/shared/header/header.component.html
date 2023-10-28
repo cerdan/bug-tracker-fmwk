@@ -1,30 +1,93 @@
 <div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper fixed deep-purple darken-2 center-align">
-            <a href="#!" class="brand-logo">
-                <img src="../../assets/img/coati-logo-inside.svg" height="50px">
+  <nav>
+    <div class="nav-wrapper deep-purple darken-2 fixed center-align">
+      <div class="container">
+        <a href="#!" class="brand-logo">
+          <img src="../../assets/img/coati-logo-inside.svg" height="50px" />
+        </a>
+        <a
+          [hidden]="!this.userLogged"
+          href="#"
+          data-target="mobile-sidenav"
+          class="sidenav-trigger right"
+          ><i class="material-icons light-green-text text-lighten-3">
+            menu
+          </i></a
+        >
+        <ul [hidden]="!this.userLogged" class="right hide-on-med-and-down">
+          <li>
+            <a href="profile.html" class="light-green-text text-lighten-3">
+              Profile
             </a>
-            <a [hidden]="!this.userLogged" href="#" data-target="mobile-sidenav" class="sidenav-trigger right"><i class="material-icons light-green-text text-lighten-3">menu</i></a>
-            <ul [hidden]="!this.userLogged" class="right hide-on-med-and-down">
-                <li><a href="profile.html" class="light-green-text text-lighten-3">Profile</a></li>
-                <li><a href="login.html" class="light-green-text text-lighten-3">Mudar usuário</a></li>
-                <li><a href="#!" class="light-green-text text-lighten-3" (click)="this.onClickLogout($event)">Sair</a></li>
-            </ul>
-            <ul [hidden]="this.userLogged" class="right">
-                <li ><a href="#!" class="light-green-text text-lighten-3" (click)="this.onClickLogin($event)">Entrar</a></li>
-            </ul>
-        </div>
-    </nav>
+          </li>
+          <li>
+            <a href="login.html" class="light-green-text text-lighten-3">
+              Mudar usuário
+            </a>
+          </li>
+          <li>
+            <a
+              href="#!"
+              class="light-green-text text-lighten-3"
+              (click)="this.onClickLogout($event)"
+            >
+              Sair
+            </a>
+          </li>
+        </ul>
+        <ul [hidden]="this.userLogged" class="right">
+          <li>
+            <a
+              href="#!"
+              class="light-green-text text-lighten-3"
+              (click)="this.onClickLogin($event)"
+            >
+              Entrar
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>
 
 <ul class="sidenav deep-purple darken-2 right" id="mobile-sidenav" #mobile>
-    <li [hidden]="!this.userLogged"><a href="#" class="light-green-text text-lighten-3"><div class="valign-wrapper">
-        <span class="circle light-green lighten-3" style="width: 40px;height: 40px;display: inline-block;"></span>
+  <li [hidden]="!this.userLogged">
+    <a href="#" class="light-green-text text-lighten-3"
+      ><div class="valign-wrapper">
+        <span
+          class="circle light-green lighten-3"
+          style="width: 40px; height: 40px; display: inline-block"
+        ></span>
         &nbsp;&nbsp;Usuário
-    </div></a></li>
-    <li [hidden]="!this.userLogged"><a href="#" class="light-green-text text-lighten-3 sidenav-close">Voltar</a></li>
-    <li [hidden]="!this.userLogged"><a href="profile.html" class="light-green-text text-lighten-3">Profile</a></li>
-    <li [hidden]="!this.userLogged"><a href="login.html" class="light-green-text text-lighten-3">Mudar usuário</a></li>
-    <li [hidden]="!this.userLogged"><a href="#!" class="light-green-text text-lighten-3 sidenav-close" (click)="this.onClickLogout($event)">Sair</a></li>
-    <li [hidden]="this.userLogged"><a href="#!" class="light-green-text text-lighten-3 sidenav-close" (click)="this.onClickLogin($event)">Entrar</a></li>
+      </div></a
+    >
+  </li>
+  <li [hidden]="!this.userLogged">
+    <a href="#" class="light-green-text text-lighten-3 sidenav-close">Voltar</a>
+  </li>
+  <li [hidden]="!this.userLogged">
+    <a href="profile.html" class="light-green-text text-lighten-3">Profile</a>
+  </li>
+  <li [hidden]="!this.userLogged">
+    <a href="login.html" class="light-green-text text-lighten-3"
+      >Mudar usuário</a
+    >
+  </li>
+  <li [hidden]="!this.userLogged">
+    <a
+      href="#!"
+      class="light-green-text text-lighten-3 sidenav-close"
+      (click)="this.onClickLogout($event)"
+      >Sair</a
+    >
+  </li>
+  <li [hidden]="this.userLogged">
+    <a
+      href="#!"
+      class="light-green-text text-lighten-3 sidenav-close"
+      (click)="this.onClickLogin($event)"
+      >Entrar</a
+    >
+  </li>
 </ul>
