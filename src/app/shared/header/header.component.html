@@ -70,24 +70,26 @@
     <a href="profile.html" class="light-green-text text-lighten-3">Profile</a>
   </li>
   <li [hidden]="!this.userLogged">
-    <a href="login.html" class="light-green-text text-lighten-3"
-      >Mudar usuário</a
-    >
+    <a href="login.html" class="light-green-text text-lighten-3">
+      Mudar usuário
+    </a>
   </li>
   <li [hidden]="!this.userLogged">
     <a
       href="#!"
       class="light-green-text text-lighten-3 sidenav-close"
       (click)="this.onClickLogout($event)"
-      >Sair</a
     >
+      Sair
+    </a>
   </li>
   <li [hidden]="this.userLogged">
     <a
       href="#!"
       class="light-green-text text-lighten-3 sidenav-close"
       (click)="this.onClickLogin($event)"
-      >Entrar</a
     >
+      Entrar
+    </a>
   </li>
 </ul>
