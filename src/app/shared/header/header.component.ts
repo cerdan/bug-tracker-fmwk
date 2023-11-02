@@ -1,27 +1,31 @@
 import * as M from 'materialize-css';
 
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  ViewChild,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements AfterViewInit{
+export class HeaderComponent implements AfterViewInit {
+  @Input() userLogged : boolean = false;
+  @Input() userName : string = '';
+  @Output() logoutEvent = new EventEmitter<void>();
   @ViewChild('mobile') sideNav?: ElementRef;
-  
-  userLogged : boolean = false;
 
   ngAfterViewInit(): void {
-    M.Sidenav.init(this.sideNav?.nativeElement, {edge:'right'});
+    M.Sidenav.init(this.sideNav?.nativeElement, { edge: 'right' });
   }
 
-  onClickLogin(e : Event) : void{
-    this.userLogged = true;
-    console.log("Login");
-  }
-
-  onClickLogout(e : Event) : void{
-    this.userLogged = false;
+  onClickLogout(){
+    this.logoutEvent.emit();
   }
 }

@@ -1,5 +1,5 @@
 <header>
-  <app-header></app-header>
+  <app-header [userLogged]="this.userLogged" [userName]="this.userName" (logoutEvent)="this.onLogout()"></app-header>
 </header>
 <main>
     <router-outlet></router-outlet>
