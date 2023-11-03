@@ -17,10 +17,6 @@ body {
   background-color: var(--light-purple);
 }
 
-.no-margin{
-    margin: 0px;
-}
-
 .btn.border-only {
   background-color: transparent !important;
   border: 1px solid !important;
@@ -43,4 +39,20 @@ body {
   border-bottom: 1px solid !important;
   border-bottom-color: var(--dark-purple) !important;
   box-shadow: 0 1px 0 0 var(--dark-purple) !important;
+}
+
+
+/* HELPERS */
+.round-rect{
+    border-radius: 25px;
+}
+
+.border-solid-dark-purple{
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--dark-purple);
+}
+
+.no-margin{
+    margin: 0px;
 }
