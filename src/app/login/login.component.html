@@ -13,7 +13,8 @@
               name="username"
               id="username"
               class="validate"
-              mask="SAAAAAAAAAAAAA||000.000.000-00"
+              mask="UUUUUUUUUUUUUU||000.000.000-00"
+              [patterns]="usernamePattern"
               [dropSpecialCharacters]="false"
               #usernameField
             /><label for="username">Usuário (Nome ou CPF)</label>
@@ -26,12 +27,13 @@
               name="password"
               id="password"
               class="validate"
+              #passwordField
             /><label for="password">Senha</label>
           </div>
         </div>
         <div class="row center-align">
           <button
-            type="submit "
+            type="submit"
             class="btn waves-effect waves-light deep-purple darken-4 col s3 text-bold"
             (click) = "this.onClickLogin()"
           >
