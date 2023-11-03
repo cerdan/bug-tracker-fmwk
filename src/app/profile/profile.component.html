@@ -1,1 +1,109 @@
-<p>profile works!</p>
+<div class="valign-wrapper" style="flex: 1 0 auto">
+  <div class="container">
+    <div class="row">
+      <h5 class="col offset-s4">Cadastrar usuário no sistema.</h5>
+    </div>
+    <div class="row">
+      <div id="feedback" class="red lighten-1 white-text" hidden>teste</div>
+      <form action="/login" class="col s8 offset-s4">
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              [patterns]="this.usernamePattern"
+              mask="U*"
+              [dropSpecialCharacters]="false"
+            /><label for="username">Nome de Usuário</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="userFullName"
+              id="userFullName"
+              class="validate"
+              [patterns]="this.namePattern"
+              mask="N{30}"
+            /><label for="userFullName">Nome Completo</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="userCPF"
+              id="userCPF"
+              class="validate"
+              mask="000.000.000-00"
+              [dropSpecialCharacters]="false"
+            /><label for="userCPF">CPF</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              class="validate"
+              mask="Ç*@Ç*."
+              [patterns]="this.emailPattern"
+              [dropSpecialCharacters]="false"
+            /><label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="emailConfirm"
+              id="emailConfirm"
+              class="validate"
+              mask="A*@A*.S{3}"
+              [patterns]="this.emailPattern"
+              [dropSpecialCharacters]="false"
+            /><label for="emailConfirm">Confirme o Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="validate"
+            /><label for="password">Senha</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="password"
+              name="passwordConfirm"
+              id="passwordConfirm"
+              class="validate"
+            /><label for="password">Confirme a Senha</label>
+          </div>
+        </div>
+        <div class="row center-align">
+          <button
+            type="submit"
+            class="btn waves-effect waves-light deep-purple darken-4 col s4 text-bold"
+          >
+            CADASTRAR
+          </button>
+          <button
+            type="button"
+            routerLink="/"
+            class="btn waves-effect waves-light deep-purple-text text-darken-4 col offset-m1 s3 border-only text-bold"
+          >
+            CANCELAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
