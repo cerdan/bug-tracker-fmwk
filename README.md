@@ -48,6 +48,10 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Passar dados entre componentes que representam diferentes telas via parâmetros de rotas. 
 - [x] Empregar variáveis de template e a anotação ViewChild.
 
+## Atividade 11
+- [ ] Validar campos do formulário com Expressões Regulares e apresentar os erros.
+- [ ] Desabilitar o botão de submit enquanto o formulário está inválido.
+- [ ] Cadastrar uma entidade no Web Storage.
 
 ## Manual de execução
 - Clonar o repositório com `git clone`
