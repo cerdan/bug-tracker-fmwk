@@ -7,7 +7,7 @@ O frontend da aplicação foi desenvolvido com Angular e o backend foi simulado 
 
 ## Endereço de Deploy - GitHub Pages
 
-http://cerdan.github.io INCLUIR LINK
+https://cerdan.github.io/bug-tracker-fmwk/
 
 ## Protótipo
 
