@@ -13,6 +13,7 @@ import { TicketComponent } from './shared/ticket/ticket.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { LoginComponent } from './login/login.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
+import { TicketCreateComponent } from './ticket-create/ticket-create.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
     TicketComponent,
     TicketsComponent,
     LoginComponent,
-    TicketDetailComponent
+    TicketDetailComponent,
+    TicketCreateComponent
   ],
   imports: [
     BrowserModule,
