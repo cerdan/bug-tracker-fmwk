@@ -1,1 +1,14 @@
-<p>ticket works!</p>
+<div class="ticket">
+<a class="deep-purple-text text-darken-4">
+  <div
+    class="deep-purple lighten-4 border-solid-dark-purple round-rect-small hoverable"
+    style="border-width: 1px"
+  >
+    <h5 class="no-margin truncate" style="padding-left: 2em"><ng-content select="header"></ng-content></h5>
+    <div class="divider deep-purple darken-5"></div>
+    <span class="limit-3-lines" style="padding-left: 2em; padding-right: 2em">
+      <ng-content select="section"></ng-content>
+    </span>
+  </div>
+</a>
+</div>

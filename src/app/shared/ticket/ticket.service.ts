@@ -23,7 +23,7 @@ export class TicketService {
 
   delete(ticketId: number) {
     this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
-    this.Tickets = this.Tickets.filter(t => {
+    this.Tickets = this.Tickets.filter((t) => {
       return t.id?.valueOf() != ticketId?.valueOf();
     });
     WebStorageUtil.set(AppParam.TBL_TICKETS, this.Tickets);
@@ -34,10 +34,15 @@ export class TicketService {
     this.save(Ticket);
   }
 
-  getAssignedTo(user : User){
+  getAssignedTo(user: User) {
     this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
-    return this.Tickets.filter(t => {
-       return t.attributedTo?.valueOf() == user?.id?.valueOf();
-    })
+    return this.Tickets.filter((t) => {
+      return t.attributedTo?.valueOf() == user?.id?.valueOf();
+    });
+  }
+  
+  getTickets(): Ticket[] {
+    this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
+    return this.Tickets
   }
 }
