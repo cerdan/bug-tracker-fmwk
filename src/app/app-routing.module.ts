@@ -5,12 +5,14 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TicketsComponent } from './tickets/tickets.component';
+import { TicketCreateComponent as CreateTicketComponent } from './ticket-create/ticket-create.component'
 
 const routes: Routes = [
   {path: 'index', component: LandingComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'ticket', component: TicketsComponent},
+  {path: 'create', component: CreateTicketComponent},
   {path: '', redirectTo: 'index', pathMatch: 'full'},
 ];
 

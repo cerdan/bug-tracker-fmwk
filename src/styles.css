@@ -41,6 +41,11 @@ body {
   box-shadow: 0 1px 0 0 var(--dark-purple) !important;
 }
 
+/* Fixed Action Button Position */
+.fixed-action-btn{
+  bottom: 75px;
+}
+
 /**/
 .ticket{
   margin-top: 0.5em;
