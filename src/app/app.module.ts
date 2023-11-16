@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { TicketComponent } from './shared/ticket/ticket.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { LoginComponent } from './login/login.component';
+import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './login/login.component';
     ProfileComponent,
     TicketComponent,
     TicketsComponent,
-    LoginComponent
+    LoginComponent,
+    TicketDetailComponent
   ],
   imports: [
     BrowserModule,
