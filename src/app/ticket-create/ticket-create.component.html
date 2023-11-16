@@ -1,1 +1,88 @@
-<p>ticket-create works!</p>
+<div class="valign-wrapper" style="flex: 1 0 auto">
+  <div class="container">
+    <div class="row">
+      <h5 class="col offset-s4">Cadastrar usuário no sistema.</h5>
+    </div>
+    <div class="row">
+      <div id="feedback" class="red lighten-1 white-text" hidden>teste</div>
+      <form #form="ngForm" class="col s8 offset-s4" (submit)="onSubmit()">
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="title"
+              id="title"
+              pattern="[a-zA-zà-ú?! .0-9]{1,30}"
+              [(ngModel)]="this.ticket.title"
+              class="validate"
+            /><label for="title">Título</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="severity"
+              id="severity"
+              pattern="\b[LMH](?:\b|(?<=L)L|(?<=H)H)"
+              mask="AA"
+              class="validate"
+              [(ngModel)]="this.ticket.severity"
+            /><label for="severity">Severidade (LL, L, M, H, HH)</label>
+          </div>
+          <div class="row">
+            <div class="input-field col s8">
+              <input
+                type="text"
+                name="affectedItem"
+                id="affectedItem"
+                pattern="[a-zA-zà-ú ]{30}"
+                class="validate"
+                [(ngModel)]="this.ticket.affectedItem"
+              /><label for="affectedItem">Item afetado</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="attributedTo"
+              id="attributedTo"
+              [patterns]="this.usernamePattern"
+              mask="U*"
+              class="validate"
+              [dropSpecialCharacters]="false"
+              [(ngModel)]="this.ticket.attributedTo"
+            /><label for="attributedTo">Atribuir à</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="description"
+              id="description"
+              [(ngModel)]="this.ticket.description"
+            /><label for="description">Descrição</label>
+          </div>
+        </div>
+        <div class="row center-align">
+          <button
+            type="submit"
+            class="btn waves-effect waves-light deep-purple darken-4 col s4 text-bold"
+          >
+            ENVIAR
+          </button>
+          <button
+            type="button"
+            routerLink="/"
+            class="btn waves-effect waves-light deep-purple-text text-darken-4 col offset-m1 s3 border-only text-bold"
+          >
+            CANCELAR
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

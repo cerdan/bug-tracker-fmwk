@@ -14,6 +14,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { LoginComponent } from './login/login.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 import { TicketCreateComponent } from './ticket-create/ticket-create.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TicketCreateComponent } from './ticket-create/ticket-create.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     NgxMaskDirective,
     NgxMaskPipe,
   ],

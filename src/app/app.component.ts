@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { Subscription } from 'rxjs';
 import { WebStorageUtil } from './util/WebStorageUtil';
 import { AppParam } from './util/AppParam';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit{
   userName : string = '';
   subscription? : Subscription;
 
-  constructor(private titleService : Title){
+  constructor(private titleService : Title, private router : Router){
     this.titleService.setTitle(this.title);
   }
 
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit{
   onLogin(usuario : string) : void{
     WebStorageUtil.set(AppParam.CUR_USER_KEY, usuario);
     WebStorageUtil.set(AppParam.LOGGED_KEY, true);
+    this.router.navigate(['ticket']);
   }
 
   onLogout() : void{
