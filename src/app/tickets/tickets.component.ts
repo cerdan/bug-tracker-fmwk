@@ -1,3 +1,5 @@
+import { WebStorageUtil } from './../util/WebStorageUtil';
+import { AppParam } from './../util/AppParam';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -54,10 +56,6 @@ export class TicketsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params: Params) => {
-      if (params['username']) {
-        this.username = params['username'];
-      }
-    });
+    this.username = WebStorageUtil.get(AppParam.CUR_USER_KEY);
   }
 }

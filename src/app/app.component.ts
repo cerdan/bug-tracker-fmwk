@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { LoginComponent } from './login/login.component';
 import { Subscription } from 'rxjs';
+import { WebStorageUtil } from './util/WebStorageUtil';
+import { AppParam } from './util/AppParam';
 
 @Component({
   selector: 'app-root',
@@ -30,12 +32,12 @@ export class AppComponent implements OnInit{
   }
 
   onLogin(usuario : string) : void{
-    this.userLogged = true;
-    this.userName = usuario;
+    WebStorageUtil.set(AppParam.CUR_USER_KEY, usuario);
+    WebStorageUtil.set(AppParam.LOGGED_KEY, true);
   }
 
   onLogout() : void{
-    this.userLogged = false;
-    this.userName = '';
+    WebStorageUtil.set(AppParam.CUR_USER_KEY, '');
+    WebStorageUtil.set(AppParam.LOGGED_KEY, true);
   }
 }
