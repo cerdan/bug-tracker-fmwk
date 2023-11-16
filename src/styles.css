@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~materialize-css/dist/css/materialize.css";
+@import "~materialize-css/dist/css/materialize.min.css";
 @import "~material-icons/iconfont/material-icons.css";
 
 :root {
@@ -41,10 +41,18 @@ body {
   box-shadow: 0 1px 0 0 var(--dark-purple) !important;
 }
 
+/**/
+.ticket{
+  margin-top: 0.5em;
+}
 
 /* HELPERS */
 .round-rect{
     border-radius: 25px;
+}
+
+.round-rect-small{
+  border-radius: 8px;
 }
 
 .border-solid-dark-purple{
@@ -55,4 +63,25 @@ body {
 
 .no-margin{
     margin: 0px;
+}
+
+.line-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.limit-2-lines{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.limit-3-lines{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
