@@ -25,7 +25,7 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Mapear componentes à rotas no módulo de rotas.
 - [x] Criar navegação entre páginas por meio de rotas.
 - [x] Passar dados entre componentes que representam diferentes telas via parâmetros de rotas.
-- [ ] Validar campos do formulário com REGEX e apresentar os erros.
+- [x] Validar campos do formulário com REGEX e apresentar os erros.
 - [ ] Desabilitar o botão de submit enquanto o formulário está inválido.
 - [ ] Fazer requisições a API com tratamento da resposta com Promises ou Observables.
 - [ ] Cadastrar uma entidade no JSON Server.
@@ -49,7 +49,7 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Empregar variáveis de template e a anotação ViewChild.
 
 ## Atividade 11
-- [ ] Validar campos do formulário com Expressões Regulares e apresentar os erros.
+- [x] Validar campos do formulário com Expressões Regulares e apresentar os erros.
 - [ ] Desabilitar o botão de submit enquanto o formulário está inválido.
 - [x] Cadastrar uma entidade no Web Storage.
 
