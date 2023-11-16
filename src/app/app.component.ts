@@ -33,13 +33,21 @@ export class AppComponent implements OnInit{
   }
 
   onLogin(usuario : string) : void{
-    WebStorageUtil.set(AppParam.CUR_USER_KEY, usuario);
-    WebStorageUtil.set(AppParam.LOGGED_KEY, true);
+    this.userName=usuario;
+    this.userLogged=true;
     this.router.navigate(['ticket']);
+    this.updateWebStorage();
+  }
+  
+  onLogout() : void{
+    this.userName='';
+    this.userLogged=false;
+    this.router.navigate(['']);
+    this.updateWebStorage();
   }
 
-  onLogout() : void{
-    WebStorageUtil.set(AppParam.CUR_USER_KEY, '');
-    WebStorageUtil.set(AppParam.LOGGED_KEY, true);
+  updateWebStorage(){
+    WebStorageUtil.set(AppParam.CUR_USER_KEY, this.userName);
+    WebStorageUtil.set(AppParam.LOGGED_KEY, this.userLogged);
   }
 }
