@@ -3,7 +3,7 @@ export class Ticket{
     public id : number;
     public owner : number;
     public title: string;
-    public severity:| string;
+    public severity: string;
     public affectedItem:string;
     public attributedTo :number;
     public description : string;
