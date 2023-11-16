@@ -10,7 +10,7 @@ export class Ticket{
     /**
      *
      */
-    constructor(id : number, owner: number, title : string, severity : string, affectedItem : string, attributedTo : number, description : string) {
+    constructor(owner: number, title : string, severity : string, affectedItem : string, attributedTo : number, description : string) {
         this.id = Ticket.nextId++;
         this.owner = owner;
         this.title = title;

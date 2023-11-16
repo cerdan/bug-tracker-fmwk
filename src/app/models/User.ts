@@ -9,7 +9,7 @@ export class User{
     /**
      *
      */
-    constructor(id : number, username: string, name : string, email : string, password : string) {
+    constructor(username: string, name : string, email : string, password : string) {
         this.id = User.nextId++;
         this.username = username;
         this.name = name;
