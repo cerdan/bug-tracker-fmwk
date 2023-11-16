@@ -29,7 +29,7 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [ ] Desabilitar o botão de submit enquanto o formulário está inválido.
 - [ ] Fazer requisições a API com tratamento da resposta com Promises ou Observables.
 - [ ] Cadastrar uma entidade no JSON Server.
-- [ ] Apresentar uma lista de dados com a diretiva estrutural ngFor.
+- [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf
 - [ ] Formatar a apresentação de dados com Pipes.
 - [ ] Build e deploy da aplicação.
@@ -51,7 +51,7 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 ## Atividade 11
 - [ ] Validar campos do formulário com Expressões Regulares e apresentar os erros.
 - [ ] Desabilitar o botão de submit enquanto o formulário está inválido.
-- [ ] Cadastrar uma entidade no Web Storage.
+- [x] Cadastrar uma entidade no Web Storage.
 
 ## Manual de execução
 - Clonar o repositório com `git clone`
