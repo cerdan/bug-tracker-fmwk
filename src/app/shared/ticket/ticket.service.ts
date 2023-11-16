@@ -12,21 +12,21 @@ export class TicketService {
   Tickets!: Ticket[];
 
   constructor() {
-    this.Tickets = WebStorageUtil.get("tickets");
+    this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
   }
 
   save(Ticket: Ticket) {
-    this.Tickets = WebStorageUtil.get("tickets");
+    this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
     this.Tickets.push(Ticket);
-    WebStorageUtil.set("tickets", this.Tickets);
+    WebStorageUtil.set(AppParam.TBL_TICKETS, this.Tickets);
   }
 
   delete(ticketId: number) {
-    this.Tickets = WebStorageUtil.get("tickets");
+    this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
     this.Tickets = this.Tickets.filter(t => {
       return t.id?.valueOf() != ticketId?.valueOf();
     });
-    WebStorageUtil.set("tickets", this.Tickets);
+    WebStorageUtil.set(AppParam.TBL_TICKETS, this.Tickets);
   }
 
   update(Ticket: Ticket) {
@@ -35,7 +35,7 @@ export class TicketService {
   }
 
   getAssignedTo(user : User){
-    this.Tickets = WebStorageUtil.get("tickets");
+    this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
     return this.Tickets.filter(t => {
        return t.attributedTo?.valueOf() == user?.id?.valueOf();
     })
