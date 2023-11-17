@@ -7,6 +7,7 @@ import {
   ViewChild,
   ElementRef,
   OnInit,
+  Input,
 } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -16,7 +17,8 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, AfterViewInit {
-  @Output() loginEvent = new EventEmitter<string>();
+  @Output() loginEvent = new EventEmitter<{username : string, password : string}>();
+  @Input() message : string = '';
   @ViewChild('usernameField') userField?: ElementRef;
   @ViewChild('passwordField') pwdField?: ElementRef;
   username: string = '';
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   pwdInput!: HTMLInputElement;
 
   emailPattern: any = { Ç: { pattern: new RegExp('[0-9A-Za-z.+]') } };
-  usernamePattern: any = { U: { pattern: new RegExp('[0-9A-Za-z.]') } };
+  usernamePattern: any = { U: { pattern: new RegExp('[0-9A-Za-z.]')}, A: { pattern: new RegExp('[A-Za-z]') }, 0: { pattern: new RegExp('[0-9]') } };
   namePattern: any = { N: { pattern: new RegExp('[A-Za-z ]') } };
 
   constructor(private route: ActivatedRoute) {}
@@ -53,6 +55,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   onClickLogin(): void {
     this.username = this.userField?.nativeElement.value;
-    this.loginEvent.emit(this.username);
+    this.password = this.pwdField?.nativeElement.value;
+    this.loginEvent.emit({username: this.username, password: this.password});
   }
 }

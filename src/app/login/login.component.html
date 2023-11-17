@@ -4,7 +4,7 @@
       <h5 class="col offset-s4">Entrar no sistema.</h5>
     </div>
     <div class="row">
-      <div id="feedback" class="red lighten-1 white-text" hidden>teste</div>
+      <div id="feedback" class="red lighten-1 white-text" [hidden]="!this.message">{{this.message}}</div>
       <form action="/ticket" class="col s8 offset-s4">
         <div class="row">
           <div class="input-field col s8">
@@ -13,8 +13,9 @@
               name="username"
               id="username"
               class="validate"
-              mask="UUUUUUUUUUUUUU||000.000.000-00"
+              mask="AUUUUUUUUUUUUU||000.000.000-00"
               [patterns]="usernamePattern"
+              [specialCharacters]="['-','.']"
               [dropSpecialCharacters]="false"
               #usernameField
             /><label for="username">Usuário (Nome ou CPF)</label>
