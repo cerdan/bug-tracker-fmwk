@@ -22,18 +22,24 @@
               É necessário infomar um título com no máximo 30 caracteres.
             </div>
           </div>
-        <!-- </div>
+          <!-- </div>
         <div class="row"> -->
           <div class="input-field col s8 m6">
-            <input
-              type="text"
+            <select
               name="severity"
               id="severity"
-              pattern="\b[LMH](?:\b|(?<=L)L|(?<=H)H)"
               [(ngModel)]="this.ticket.severity"
               class="validate"
               #severity="ngModel"
-            /><label for="severity">Severidade (LL, L, M, H, HH)</label>
+            >
+              <option></option>
+              <option>LL</option>
+              <option>L</option>
+              <option>M</option>
+              <option>H</option>
+              <option>HH</option>
+            </select>
+            <label for="severity">Severidade (LL, L, M, H, HH)</label>
             <div class="red-text" [hidden]="severity.valid">
               A severidade deve receber um dos seguintes valores: LL, L, M, H ou
               HH
@@ -59,26 +65,26 @@
               É necessário infomar o local afetado com no máximo 30 caracteres.
             </div>
           </div>
-        <!-- </div>
+          <!-- </div>
         <div class="row"> -->
           <div class="input-field col s8 m6">
-            <input
-              type="text"
+            <select
               name="attributedTo"
               id="attributedTo"
-              [patterns]="this.usernamePattern"
-              mask="U*"
-              [dropSpecialCharacters]="false"
               [(ngModel)]="this.ticket.attributedTo"
-              class="validate"
+              [class]="'validate' + (affected.value=='')?' valid':' invalid' "
               #attributed="ngModel"
-              required
-            /><label for="attributedTo">Atribuir à *</label>
+            >
+              <option disabled>Usuários:</option>
+              <option *ngFor="let u of this.users" [ngValue]="u.id">
+                {{ u.username }}
+              </option></select
+            ><label for="attributedTo">Atribuir à</label>
             <div
               class="red-text"
-              [hidden]="attributed.valid || attributed.untouched"
+              [hidden]="attributed.value != ''"
             >
-              É necessário infomar um título.
+              É necessário infomar um usuário.
             </div>
           </div>
         </div>
@@ -102,7 +108,7 @@
           <button
             type="submit"
             class="btn waves-effect waves-light deep-purple darken-4 col s4 offset-m2 text-bold"
-            [disabled]="!form.valid"
+            [disabled]="!form.valid || attributed.value == ''"
           >
             ENVIAR
           </button>
