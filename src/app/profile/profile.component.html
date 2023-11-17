@@ -1,13 +1,13 @@
 <div class="valign-wrapper" style="flex: 1 0 auto">
   <div class="container">
     <div class="row">
-      <h5 class="col offset-s4">Cadastrar usuário no sistema.</h5>
+      <h5 class="col offset-s4 offset-m3">Cadastrar usuário no sistema.</h5>
     </div>
     <div class="row">
       <div id="feedback" class="red lighten-1 white-text" hidden>teste</div>
-      <form action="/login" class="col s8 offset-s4">
+      <form action="/login" class="col s8 offset-s4 m12">
         <div class="row">
-          <div class="input-field col s8">
+          <div class="input-field col s8 m6 offset-m3">
             <input
               type="text"
               name="username"
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s8">
+          <div class="input-field col s8 m6">
             <input
               type="text"
               name="userFullName"
@@ -29,9 +29,9 @@
               mask="N{30}"
             /><label for="userFullName">Nome Completo</label>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8">
+        <!-- </div>
+        <div class="row"> -->
+          <div class="input-field col s8 m6">
             <input
               type="text"
               name="userCPF"
@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s8">
+          <div class="input-field col s8 m6">
             <input
               type="text"
               name="email"
@@ -54,9 +54,9 @@
               [dropSpecialCharacters]="false"
             /><label for="email">Email</label>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8">
+        <!-- </div>
+        <div class="row"> -->
+          <div class="input-field col s8 m6">
             <input
               type="text"
               name="emailConfirm"
@@ -69,7 +69,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s8">
+          <div class="input-field col s8 m6">
             <input
               type="password"
               name="password"
@@ -77,9 +77,9 @@
               class="validate"
             /><label for="password">Senha</label>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8">
+        <!-- </div>
+        <div class="row"> -->
+          <div class="input-field col s8 m6">
             <input
               type="password"
               name="passwordConfirm"
@@ -91,7 +91,7 @@
         <div class="row center-align">
           <button
             type="submit"
-            class="btn waves-effect waves-light deep-purple darken-4 col s4 text-bold"
+            class="btn waves-effect waves-light deep-purple darken-4 col s4 offset-m2 text-bold"
           >
             CADASTRAR
           </button>
