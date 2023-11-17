@@ -5,7 +5,7 @@
   >
     <h3 class="no-margin">Atribuídos à {{ this.username }}</h3>
   </div>
-  <app-ticket *ngFor="let t of tickets">
+  <app-ticket *ngFor="let t of tickets" [ticket]="t">
     <header>{{ t.title }}</header>
     <section>{{ t.description }}</section>
   </app-ticket>
