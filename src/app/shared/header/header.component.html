@@ -3,7 +3,7 @@
     <div class="nav-wrapper deep-purple darken-2 fixed center-align">
       <div class="container">
         <div class="left" id="userName" [hidden]="!this.userLogged">
-          <a href="#" class="light-green-text text-lighten-3">
+          <a [routerLink]="this.userLogged?'/ticket':'/'" class="light-green-text text-lighten-3">
             <div class="valign-wrapper">
               <span
                 class="circle light-green lighten-3"
@@ -14,14 +14,14 @@
           </a>
         </div>
         <div class="center" style="margin-left: auto; margin-right: auto;">
-          <a href="#!" class="brand-logo">
+          <a [routerLink]="this.userLogged?'/ticket':'/'" class="brand-logo">
             <img src="../../assets/img/coati-logo-inside.svg" height="50px" />
           </a>
         </div>
         <div class="right">
           <a
             [hidden]="!this.userLogged"
-            href="#"
+            [routerLink]="this.userLogged?'/ticket':'/'"
             data-target="mobile-sidenav"
             class="sidenav-trigger light-green-text text-lighten-3"
           >
@@ -64,7 +64,7 @@
 <ul class="sidenav deep-purple darken-2 right" id="mobile-sidenav" #mobile>
   <div *ngIf="this.userLogged">
     <li>
-      <a href="#" class="light-green-text text-lighten-3">
+      <a [routerLink]="this.userLogged?'/ticket':'/'" class="light-green-text text-lighten-3">
         <div class="valign-wrapper">
           <span
             class="circle light-green lighten-3"
@@ -75,17 +75,17 @@
       </a>
     </li>
     <li>
-      <a href="#" class="light-green-text text-lighten-3 sidenav-close"
+      <a class="light-green-text text-lighten-3 sidenav-close"
         >Voltar</a
       >
     </li>
     <li>
-      <a routerLink="/profile" class="light-green-text text-lighten-3"
+      <a routerLink="/profile" class="light-green-text text-lighten-3 sidenav-close"
         >Profile</a
       >
     </li>
     <li>
-      <a routerLink="/login" class="light-green-text text-lighten-3">
+      <a routerLink="/login" class="light-green-text text-lighten-3 sidenav-close">
         Mudar usuário
       </a>
     </li>
@@ -100,7 +100,7 @@
     </li>
   </div>
   <li [hidden]="this.userLogged">
-    <a routerLink="login" class="light-green-text text-lighten-3 sidenav-close">
+    <a routerLink="/login" class="light-green-text text-lighten-3 sidenav-close">
       Entrar
     </a>
   </li>
