@@ -1,6 +1,6 @@
 export class WebStorageUtil {
   static get(key: string): any {
-    if (localStorage.getItem(key) == null){
+    if (localStorage.getItem(key) === null || !localStorage.getItem(key)){
       this.set(key, []);
     }
     return JSON.parse(localStorage.getItem(key)!);
