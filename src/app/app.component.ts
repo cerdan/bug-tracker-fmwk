@@ -19,14 +19,38 @@ export class AppComponent implements OnInit {
   userName: string = '';
   subscription?: Subscription;
 
-  constructor(private titleService: Title, private router: Router, private userService : UserService) {
+  constructor(
+    private titleService: Title,
+    private router: Router,
+    private userService: UserService
+  ) {
     this.titleService.setTitle(this.title);
+
+    if (!this.userService.exists('admin'))
+    this.userService.save(
+      new User(
+        'admin',
+        'Administrator',
+        'admin@admin.com',
+        'admin',
+        '000.000.000-00'
+      )
+    );
+    if (!this.userService.exists('fillipe'))
+      this.userService.save(
+        new User(
+          'fillipe',
+          'fillipe cerdan',
+          'fillipe.cerdan@gmail.com',
+          'cerdan',
+          '123.321.123-99'
+        )
+      );
+
     this.getWebStorage();
   }
 
-  ngOnInit(): void {
-   this.userService.update(new User('fillipe','fillipe cerdan','fillipe.cerdan@gmail.com','cerdan','123.321.123-99'));
-  }
+  ngOnInit(): void {}
 
   componentActivate(evt: Event) {
     if (!(evt instanceof LoginComponent)) return;
@@ -41,11 +65,11 @@ export class AppComponent implements OnInit {
   }
 
   onLogin(username: string, password: string): void {
-    this.userName = this.userService.validateCredentials(username,password);
-    if(this.userName.length === 0){
-      alert('O login falhou. Favor validar os dados e tentar novamente.')
+    this.userName = this.userService.validateCredentials(username, password);
+    if (this.userName.length === 0) {
+      alert('O login falhou. Favor validar os dados e tentar novamente.');
       return;
-    } 
+    }
     this.userLogged = true;
     this.router.navigate(['ticket']);
     this.updateWebStorage();

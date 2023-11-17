@@ -45,4 +45,10 @@ export class TicketService {
     this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
     return this.Tickets
   }
+
+  getTicket(ticketId : number): Ticket {
+    return this.Tickets.find((t) => {
+      return t.id?.valueOf() == ticketId?.valueOf();
+    }) ?? new Ticket(0,'','','',0,'');
+  }
 }

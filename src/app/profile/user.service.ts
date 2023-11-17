@@ -61,4 +61,17 @@ export class UserService {
 
     return '';
   }
+
+  getUserId(username : string){
+    return this.getUserByUsername(username)?.id;
+  }
+
+  listUsers(){
+    this.users = WebStorageUtil.get(AppParam.TBL_USERS);
+    let list : {username:string, id:number}[]= [];
+    this.users.forEach(u => {
+      list.push({username:u.username, id: u.id});
+    });
+    return list;
+  }
 }
