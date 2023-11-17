@@ -11,10 +11,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TicketComponent implements OnInit {
   @Input() ticket?: Ticket;
 
-  constructor(private ticketService: TicketService, private router: Router) {
-  }
-  ngOnInit(): void {
-  }
+  constructor(
+    private ticketService: TicketService,
+    private router: Router,
+  ) {}
+  ngOnInit(): void {}
 
   onDelete() {
     let verify = window.confirm(
