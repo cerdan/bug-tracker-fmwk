@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
 
   constructor(private titleService: Title, private router: Router, private userService : UserService) {
     this.titleService.setTitle(this.title);
+    this.getWebStorage();
   }
 
   ngOnInit(): void {
@@ -61,4 +62,10 @@ export class AppComponent implements OnInit {
     WebStorageUtil.set(AppParam.CUR_USER_KEY, this.userName);
     WebStorageUtil.set(AppParam.LOGGED_KEY, this.userLogged);
   }
+
+  getWebStorage() {
+    this.userName = WebStorageUtil.get(AppParam.CUR_USER_KEY);
+    this.userLogged = WebStorageUtil.get(AppParam.LOGGED_KEY);
+  }
 }
+

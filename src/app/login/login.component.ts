@@ -1,3 +1,4 @@
+import { WebStorageUtil } from './../util/WebStorageUtil';
 import { NgxMaskDirective } from 'ngx-mask/lib/ngx-mask.directive';
 import {
   Component,
@@ -10,6 +11,7 @@ import {
   Input,
 } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { AppParam } from '../util/AppParam';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +32,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
   usernamePattern: any = { U: { pattern: new RegExp('[0-9A-Za-z.]')}, A: { pattern: new RegExp('[A-Za-z]') }, 0: { pattern: new RegExp('[0-9]') } };
   namePattern: any = { N: { pattern: new RegExp('[A-Za-z ]') } };
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    this.username = WebStorageUtil.get(AppParam.CUR_USER_KEY);
+  }
+  
   ngAfterViewInit(): void {
     this.userInput = this.userField?.nativeElement as HTMLInputElement;
     this.pwdInput = this.pwdField?.nativeElement as HTMLInputElement;
@@ -46,11 +51,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params: Params) => {
-      if (params['username']) {
-        this.username = params['username'];
-      }
-    });
   }
 
   onClickLogin(): void {
