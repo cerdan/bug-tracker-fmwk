@@ -1,3 +1,4 @@
 {
-    "/users/:username": "/users?username=:username"
+    "/users/:username": "/users?username=:username",
+    "/users/cpf/:cpf": "/users?cpf=:cpf"
   }

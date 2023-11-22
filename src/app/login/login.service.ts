@@ -13,11 +13,11 @@ export class LoginService {
       let user: User;
       if (username.charAt(0) >= '0' && username.charAt(0) <= '9')
         this.userService.getUserByCPF(username).then((u) => {
-          if (u === undefined) {
+          if (u === undefined || u.length === 0) {
             reject();
             return;
           }
-
+          
           user = u![0];
           if (user!.password.valueOf() === password.valueOf())
             resolve(user!.username);

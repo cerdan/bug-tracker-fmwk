@@ -73,8 +73,8 @@ export class AppComponent implements OnInit {
   onLogin(username: string, password: string): void {
     this.loginService
       .validateCredentials(username, password)
-      .then((usename) => {
-        this.userName = username;
+      .then((usrname) => {
+        this.userName = usrname;
         this.userLogged = true;
         this.router.navigate(['ticket']);
         this.updateWebStorage();

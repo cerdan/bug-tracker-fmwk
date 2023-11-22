@@ -7,6 +7,7 @@ import { User } from './../models/User';
 import { Injectable } from '@angular/core';
 import { WebStorageUtil } from '../util/WebStorageUtil';
 import { AppParam } from '../util/AppParam';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +26,13 @@ export class UserService {
   }
 
   save(user: User) {
-    return this.httpClient
-      .post<User>(this.URL, JSON.stringify(user), this.httpOptions)
-      .toPromise();
+    const user$ = this.httpClient.post<User>(
+      this.URL,
+      JSON.stringify(user),
+      this.httpOptions
+    );
+
+    return firstValueFrom(user$);
     WebStorageUtil.set(AppParam.TBL_USERS, this.users);
   }
 
@@ -40,21 +45,22 @@ export class UserService {
   }
 
   update(user: User): Promise<User | undefined> {
-    return this.httpClient
-      .put<User>(
-        `${this.URL}/${user.id}`,
-        JSON.stringify(user),
-        this.httpOptions
-      )
-      .toPromise();
+    const user$ = this.httpClient.put<User>(
+      `${this.URL}/${user.id}`,
+      JSON.stringify(user),
+      this.httpOptions
+    );
+    return firstValueFrom(user$);
   }
 
-  getUserByUsername(username: string): Promise<User[] | undefined> {
-    return this.httpClient.get<User[]>(`${this.URL}/${username}`).toPromise();
+  getUserByUsername(username: string): Promise<User[]> {
+    const users$ = this.httpClient.get<User[]>(`${this.URL}/${username}`);
+    return firstValueFrom(users$);
   }
 
   getUserByCPF(cpf: string): Promise<User[] | undefined> {
-    return this.httpClient.get<User[]>(`${this.URL}/${cpf}`).toPromise();
+    const users$ = this.httpClient.get<User[]>(`${this.URL}/cpf/${cpf}`);
+    return firstValueFrom(users$);
   }
 
   exists(username: string): Promise<void> {
@@ -69,14 +75,17 @@ export class UserService {
 
   getUserId(username: string): Promise<number> {
     return new Promise<number>((resolve, reject) => {
-      this.getUserByUsername(username).then((u) => {
-        resolve(u![0].id);
-      }).catch(() => reject(0));
+      this.getUserByUsername(username)
+        .then((u) => {
+          resolve(u![0].id);
+        })
+        .catch(() => reject(0));
     });
   }
 
-  get(): Promise<User[] | undefined> {
-    return this.httpClient.get<User[]>(this.URL).toPromise();
+  get(): Promise<User[]> {
+    const users$ = this.httpClient.get<User[]>(this.URL);
+    return firstValueFrom(users$);
   }
 
   listUsers() {
