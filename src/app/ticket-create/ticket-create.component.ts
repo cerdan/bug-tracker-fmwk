@@ -61,7 +61,7 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onSubmit() {
-    this.ticket.owner =
+    this.ticket.userId =
       this.userService.getUserId(WebStorageUtil.get(AppParam.CUR_USER_KEY)) ??
       0;
 

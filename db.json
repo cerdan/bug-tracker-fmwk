@@ -15,7 +15,7 @@
             "title":"Ticket teste",
             "severity":"High",
             "affected-item":"Página WEB",
-            "owner":"1",
+            "userId":"1",
             "attributedTo":"1",
             "description":"A página de login não está carregando."
         },
@@ -24,7 +24,7 @@
             "title":"Ticket teste 2",
             "severity":"High",
             "affected-item":"Página WEB",
-            "owner":"1",
+            "userId":"1",
             "attributedTo":"1",
             "description":"A página de login não está carregando."
         },
@@ -33,7 +33,7 @@
             "title":"Ticket teste 3",
             "severity":"High",
             "affectedItem":"Página WEB",
-            "owner":"1",
+            "userId":"1",
             "attributedTo":"1",
             "description":"A página de login não está carregando."
         }
@@ -42,7 +42,7 @@
         {
             "id":"1",
             "parent":"1",
-            "owner":"1",
+            "userId":"1",
             "content":"Alterações realizadas!"
         }
     ]
