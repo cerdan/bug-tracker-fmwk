@@ -1,3 +1,8 @@
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders,
+} from '@angular/common/http';
 import { User } from './../models/User';
 import { Injectable } from '@angular/core';
 import { WebStorageUtil } from '../util/WebStorageUtil';
@@ -9,14 +14,20 @@ import { AppParam } from '../util/AppParam';
 export class UserService {
   user?: User;
   users!: User[];
+  URL = 'http://localhost:3000/users';
 
-  constructor() {
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+  constructor(private httpClient: HttpClient) {
     this.users = WebStorageUtil.get(AppParam.TBL_USERS);
   }
 
   save(user: User) {
-    this.users = WebStorageUtil.get(AppParam.TBL_USERS);
-    this.users.push(user);
+    return this.httpClient
+      .post<User>(this.URL, JSON.stringify(user), this.httpOptions)
+      .toPromise();
     WebStorageUtil.set(AppParam.TBL_USERS, this.users);
   }
 
@@ -28,49 +39,52 @@ export class UserService {
     WebStorageUtil.set(AppParam.TBL_USERS, this.users);
   }
 
-  update(user: User) {
-    this.delete(user.id);
-    this.save(user);
+  update(user: User): Promise<User | undefined> {
+    return this.httpClient
+      .put<User>(
+        `${this.URL}/${user.id}`,
+        JSON.stringify(user),
+        this.httpOptions
+      )
+      .toPromise();
   }
 
-  private getUserByUsername(username: string) {
-    this.users = WebStorageUtil.get(AppParam.TBL_USERS);
-    return this.users.find((u) => {
-      return u.username?.valueOf() === username?.valueOf();
+  getUserByUsername(username: string): Promise<User[] | undefined> {
+    return this.httpClient.get<User[]>(`${this.URL}/${username}`).toPromise();
+  }
+
+  getUserByCPF(cpf: string): Promise<User[] | undefined> {
+    return this.httpClient.get<User[]>(`${this.URL}/${cpf}`).toPromise();
+  }
+
+  exists(username: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.getUserByUsername(username)
+        .then(() => {
+          resolve();
+        })
+        .catch(() => reject('k'));
     });
   }
 
-  private getUserByCPF(cpf: string) {
-    this.users = WebStorageUtil.get(AppParam.TBL_USERS);
-    return this.users.find((u) => {
-      return u.cpf?.valueOf() === cpf?.valueOf();
+  getUserId(username: string): Promise<number> {
+    return new Promise<number>((resolve, reject) => {
+      this.getUserByUsername(username).then((u) => {
+        resolve(u![0].id);
+      }).catch(() => reject(0));
     });
   }
 
-  exists(username: string) {
-    return this.getUserByUsername(username) !== undefined;
+  get(): Promise<User[] | undefined> {
+    return this.httpClient.get<User[]>(this.URL).toPromise();
   }
 
-  validateCredentials(username: string, password: string): string {
-    if (username.charAt(0) >= '0' && username.charAt(0) <= '9')
-      this.user = this.getUserByCPF(username);
-    else this.user = this.getUserByUsername(username);
+  listUsers() {
+    this.get().then((u) => (this.users = u!));
 
-    if (this.user?.password.valueOf() === password.valueOf())
-      return this.user?.username;
-
-    return '';
-  }
-
-  getUserId(username : string){
-    return this.getUserByUsername(username)?.id;
-  }
-
-  listUsers(){
-    this.users = WebStorageUtil.get(AppParam.TBL_USERS);
-    let list : {username:string, id:number}[]= [];
-    this.users.forEach(u => {
-      list.push({username:u.username, id: u.id});
+    let list: { username: string; id: number }[] = [];
+    this.users.forEach((u) => {
+      list.push({ username: u.username, id: u.id });
     });
     return list;
   }

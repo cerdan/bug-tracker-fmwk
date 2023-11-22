@@ -22,7 +22,7 @@ import { Subscription } from 'rxjs';
 })
 export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('form') form!: NgForm;
-  
+
   ticket!: Ticket;
   edit: boolean = false;
   users!: { username: string; id: number }[];
@@ -30,7 +30,7 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
 
   usernamePattern: any = { U: { pattern: new RegExp('[0-9A-Za-z.]') } };
   namePattern: any = { N: { pattern: new RegExp('[A-Za-z ]') } };
-  
+
   constructor(
     private ticketService: TicketService,
     private userService: UserService,
@@ -50,20 +50,27 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.paramSubstcription = this.route.queryParams.subscribe((params: Params) => {
-      if (params['tId']) {
-        this.edit = true;
-        this.ticket = Ticket.clone(this.ticketService.getTicket(params['tId']));
-      } else {
-        this.ticket = new Ticket(0, '', '', '', 0, '');
+    this.paramSubstcription = this.route.queryParams.subscribe(
+      (params: Params) => {
+        if (params['tId']) {
+          this.edit = true;
+          this.ticket = Ticket.clone(
+            this.ticketService.getTicket(params['tId'])
+          );
+        } else {
+          this.ticket = new Ticket(0, '', '', '', 0, '');
+        }
       }
-    });
+    );
   }
 
   onSubmit() {
-    this.ticket.userId =
-      this.userService.getUserId(WebStorageUtil.get(AppParam.CUR_USER_KEY)) ??
-      0;
+    this.userService
+      .getUserId(WebStorageUtil.get(AppParam.CUR_USER_KEY))
+      .then((userId) => {
+        this.ticket.userId = userId;
+      })
+      .catch(() => (this.ticket.userId = 0));
 
     if (this.edit) this.ticketService.update(this.ticket);
     else this.ticketService.save(this.ticket);

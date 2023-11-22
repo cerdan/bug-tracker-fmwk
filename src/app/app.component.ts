@@ -1,3 +1,4 @@
+import { LoginService } from './login/login.service';
 import { UserService } from './profile/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -22,31 +23,36 @@ export class AppComponent implements OnInit {
   constructor(
     private titleService: Title,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private loginService: LoginService
   ) {
     this.titleService.setTitle(this.title);
 
-    if (!this.userService.exists('admin'))
-    this.userService.save(
-      new User(
-        'admin',
-        'Administrator',
-        'admin@admin.com',
-        'admin',
-        '000.000.000-00'
-      )
-    );
-    if (!this.userService.exists('fillipe'))
+    this.userService.exists('admin').then().catch(() => {
       this.userService.save(
         new User(
-          'fillipe',
-          'fillipe cerdan',
-          'fillipe.cerdan@gmail.com',
-          'cerdan',
-          '123.321.123-99'
+          'admin',
+          'Administrator',
+          'admin@admin.com',
+          'admin',
+          '000.000.000-00'
         )
       );
-
+    });
+    this.userService.exists('fillipe').catch(() => {
+      this.userService
+        .save(
+          new User(
+            'fillipe',
+            'fillipe cerdan',
+            'fillipe.cerdan@gmail.com',
+            'cerdan',
+            '123.321.123-99'
+          )
+        )
+        .then()
+        .catch();
+    });
     this.getWebStorage();
   }
 
@@ -65,14 +71,17 @@ export class AppComponent implements OnInit {
   }
 
   onLogin(username: string, password: string): void {
-    this.userName = this.userService.validateCredentials(username, password);
-    if (this.userName.length === 0) {
-      alert('O login falhou. Favor validar os dados e tentar novamente.');
-      return;
-    }
-    this.userLogged = true;
-    this.router.navigate(['ticket']);
-    this.updateWebStorage();
+    this.loginService
+      .validateCredentials(username, password)
+      .then((usename) => {
+        this.userName = username;
+        this.userLogged = true;
+        this.router.navigate(['ticket']);
+        this.updateWebStorage();
+      })
+      .catch(() => {
+        alert('O login falhou. Favor validar os dados e tentar novamente.');
+      });
   }
 
   onLogout(): void {
@@ -92,4 +101,3 @@ export class AppComponent implements OnInit {
     this.userLogged = WebStorageUtil.get(AppParam.LOGGED_KEY);
   }
 }
-

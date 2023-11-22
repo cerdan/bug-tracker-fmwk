@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 import { TicketCreateComponent } from './ticket-create/ticket-create.component';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    HttpClientModule,
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]
