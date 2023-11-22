@@ -1,0 +1,49 @@
+{
+    "users":[
+        {
+            "id":"1",
+            "name":"A",
+            "email":"A@A.com",
+            "username":"A",
+            "password":"A",
+            "cpf" : "000.000.000-00"
+        }
+    ],
+    "tickets":[
+        {
+            "id":"1",
+            "title":"Ticket teste",
+            "severity":"High",
+            "affected-item":"Página WEB",
+            "owner":"1",
+            "attributedTo":"1",
+            "description":"A página de login não está carregando."
+        },
+        {
+            "id":"2",
+            "title":"Ticket teste 2",
+            "severity":"High",
+            "affected-item":"Página WEB",
+            "owner":"1",
+            "attributedTo":"1",
+            "description":"A página de login não está carregando."
+        },
+        {
+            "id":"3",
+            "title":"Ticket teste 3",
+            "severity":"High",
+            "affectedItem":"Página WEB",
+            "owner":"1",
+            "attributedTo":"1",
+            "description":"A página de login não está carregando."
+        }
+    ],
+    "comments":[
+        {
+            "id":"1",
+            "parent":"1",
+            "owner":"1",
+            "content":"Alterações realizadas!"
+        }
+    ]
+}
