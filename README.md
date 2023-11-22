@@ -53,6 +53,12 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Desabilitar o botão de submit enquanto o formulário está inválido.
 - [x] Cadastrar uma entidade no Web Storage.
 
+## Atividade 12
+- [ ] Fazer requisições a API com tratamento da resposta com Promises (pode usar Fetch API, async/await ou lastValueFrom do RXJS).
+- [ ] Transferir dados, por meio de serviços, entre componentes que não estão diretamente relacionados.
+- [ ] Cadastrar uma entidade no JSON Server.
+- [ ] Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários.
+
 ## Manual de execução
 - Clonar o repositório com `git clone`
 - Fazer checkout no branch `develop` que contém as modificações mais recentes
