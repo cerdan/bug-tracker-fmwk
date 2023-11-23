@@ -15,6 +15,7 @@ import { firstValueFrom } from 'rxjs';
 export class UserService {
   user?: User;
   users!: User[];
+
   URL = 'http://localhost:3000/users';
 
   httpOptions = {
@@ -33,20 +34,19 @@ export class UserService {
     );
 
     return firstValueFrom(user$);
-    WebStorageUtil.set(AppParam.TBL_USERS, this.users);
   }
 
   delete(userId: number) {
-    this.users = WebStorageUtil.get(AppParam.TBL_USERS);
-    this.users = this.users.filter((u) => {
-      return u.id?.valueOf() !== userId?.valueOf();
-    });
-    WebStorageUtil.set(AppParam.TBL_USERS, this.users);
+    const user$ = this.httpClient.delete<User>(
+      `${this.URL}/id/${userId}`,
+      this.httpOptions
+    );
+    return firstValueFrom(user$);
   }
 
   update(user: User): Promise<User | undefined> {
     const user$ = this.httpClient.put<User>(
-      `${this.URL}/${user.id}`,
+      `${this.URL}/id/${user.id}`,
       JSON.stringify(user),
       this.httpOptions
     );
@@ -89,7 +89,7 @@ export class UserService {
   }
 
   listUsers() {
-    this.get().then((u) => (this.users = u!));
+    this.get().then((u) => (this.users = u));
 
     let list: { username: string; id: number }[] = [];
     this.users.forEach((u) => {

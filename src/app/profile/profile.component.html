@@ -5,17 +5,24 @@
     </div>
     <div class="row">
       <div id="feedback" class="red lighten-1 white-text" hidden>teste</div>
-      <form action="/login" class="col s8 offset-s4 m12">
+      <form #form="ngForm" class="col s8 offset-s4 m12" (submit)="onSubmit()">
         <div class="row">
           <div class="input-field col s8 m6 offset-m3">
             <input
               type="text"
               name="username"
               id="username"
+              class="validate"
+              [(ngModel)]="this.user.username"
               [patterns]="this.usernamePattern"
               mask="U*"
               [dropSpecialCharacters]="false"
-            /><label for="username">Nome de Usuário</label>
+              #username="ngModel"
+              required
+            /><label for="username">Nome de Usuário *</label>
+            <div class="red-text" [hidden]="username.valid || username.untouched">
+              É necessário infomar um nome de usuário válido.
+            </div>
           </div>
         </div>
         <div class="row">
@@ -25,21 +32,32 @@
               name="userFullName"
               id="userFullName"
               class="validate"
-              [patterns]="this.namePattern"
-              mask="N{30}"
-            /><label for="userFullName">Nome Completo</label>
+              [(ngModel)]="this.user.name"
+              [pattern]="'[A-Za-z ]{1,30}'"
+              #name="ngModel"
+              required
+            /><label for="userFullName">Nome Completo *</label>
+            <div class="red-text" [hidden]="name.valid || name.untouched">
+              É necessário infomar um nome com até 30 caracteres.
+            </div>
           </div>
-        <!-- </div>
-        <div class="row"> -->
+          <!-- </div>
+            <div class="row"> -->
           <div class="input-field col s8 m6">
             <input
               type="text"
               name="userCPF"
               id="userCPF"
               class="validate"
+              [(ngModel)]="this.user.cpf"
               mask="000.000.000-00"
               [dropSpecialCharacters]="false"
-            /><label for="userCPF">CPF</label>
+              #cpf="ngModel"
+              required
+            /><label for="userCPF">CPF *</label>
+            <div class="red-text" [hidden]="cpf.valid || cpf.untouched">
+              É necessário infomar um cpf válido.
+            </div>
           </div>
         </div>
         <div class="row">
@@ -49,23 +67,36 @@
               name="email"
               id="email"
               class="validate"
-              mask="Ç*@Ç*."
+              [(ngModel)]="this.user.email"
+              mask="Ç*@Ç*.*"
               [patterns]="this.emailPattern"
               [dropSpecialCharacters]="false"
-            /><label for="email">Email</label>
+              #email="ngModel"
+              required
+            /><label for="email">Email *</label>
+            <div class="red-text" [hidden]="email.valid || email.untouched">
+              É necessário infomar um email válido.
+            </div>
           </div>
-        <!-- </div>
-        <div class="row"> -->
+          <!-- </div>
+              <div class="row"> -->
           <div class="input-field col s8 m6">
             <input
               type="text"
               name="emailConfirm"
               id="emailConfirm"
               class="validate"
-              mask="A*@A*.S{3}"
-              [patterns]="this.emailPattern"
-              [dropSpecialCharacters]="false"
-            /><label for="emailConfirm">Confirme o Email</label>
+              [pattern]="this.user.email"
+              [(ngModel)]="this.emailConfirmation"
+              #emConfirmation="ngModel"
+              required
+            /><label for="emailConfirm">Confirme o Email *</label>
+            <div
+              class="red-text"
+              [hidden]="emConfirmation.valid || emConfirmation.untouched"
+            >
+              É necessário que os emails sejam iguais.
+            </div>
           </div>
         </div>
         <div class="row">
@@ -74,26 +105,46 @@
               type="password"
               name="password"
               id="password"
+              [(ngModel)]="this.user.password"
               class="validate"
-            /><label for="password">Senha</label>
+              #password="ngModel"
+              required
+              /><label for="password">Senha *</label>
+              <div
+              class="red-text"
+              [hidden]="password.valid || password.untouched"
+              >
+              É necessário infomar a senha.
+            </div>
           </div>
-        <!-- </div>
+          <!-- </div>
         <div class="row"> -->
           <div class="input-field col s8 m6">
             <input
-              type="password"
+            type="password"
               name="passwordConfirm"
               id="passwordConfirm"
+              [pattern]="this.user.password"
               class="validate"
-            /><label for="password">Confirme a Senha</label>
+              [(ngModel)]="this.passwordConfirmation"
+              #pwConfirmation="ngModel"
+              required
+            /><label for="passwordConfirm">Confirme a Senha *</label>
+            <div
+              class="red-text"
+              [hidden]="pwConfirmation.valid || pwConfirmation.untouched"
+            >
+              É necessário que as senhas sejam iguais.
+            </div>
           </div>
         </div>
         <div class="row center-align">
           <button
             type="submit"
             class="btn waves-effect waves-light deep-purple darken-4 col s4 offset-m2 text-bold"
+            [disabled]="!form.valid"
+            [innerHTML]="(this.edit)?'ALTERAR':'CADASTRAR'"
           >
-            CADASTRAR
           </button>
           <button
             type="button"
@@ -101,6 +152,16 @@
             class="btn waves-effect waves-light deep-purple-text text-darken-4 col offset-m1 s3 border-only text-bold"
           >
             CANCELAR
+          </button>
+        </div>
+        <div class="row center-align" [hidden]="!this.edit">
+          <button
+            type="button"
+            class="btn waves-effect waves-light pink lighten-1 col s4 offset-m4 text-bold delete"
+            (click)="onDelete()"
+            [disabled]="!pwConfirmation.valid || pwConfirmation.untouched"
+          >
+            EXCLUIR
           </button>
         </div>
       </form>

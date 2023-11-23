@@ -29,7 +29,7 @@
           </a>
           <ul [hidden]="!this.userLogged" class="hide-on-med-and-down">
             <li>
-              <a routerLink="/profile" class="light-green-text text-lighten-3">
+              <a routerLink="/profile" [queryParams]="this.userLogged?{uName:this.userName}:{}" class="light-green-text text-lighten-3">
                 Profile
               </a>
             </li>
@@ -80,7 +80,7 @@
       >
     </li>
     <li>
-      <a routerLink="/profile" class="light-green-text text-lighten-3 sidenav-close"
+      <a routerLink="/profile" [queryParams]="this.userLogged?{uName:this.userName}:{}"  class="light-green-text text-lighten-3 sidenav-close"
         >Profile</a
       >
     </li>

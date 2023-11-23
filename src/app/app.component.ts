@@ -8,6 +8,7 @@ import { WebStorageUtil } from './util/WebStorageUtil';
 import { AppParam } from './util/AppParam';
 import { Router } from '@angular/router';
 import { User } from './models/User';
+import { ProfileComponent } from './profile/profile.component';
 
 @Component({
   selector: 'app-root',
@@ -59,10 +60,15 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {}
 
   componentActivate(evt: Event) {
-    if (!(evt instanceof LoginComponent)) return;
+    if ((evt instanceof LoginComponent))
     this.subscription = (evt as LoginComponent).loginEvent.subscribe(
       (loginInfo: { username: string; password: string }) =>
         this.onLogin(loginInfo.username, loginInfo.password)
+    );
+    if((evt instanceof ProfileComponent))
+    this.subscription = (evt as ProfileComponent).logoutEvent.subscribe(
+      () =>
+        this.onLogout()
     );
   }
 
