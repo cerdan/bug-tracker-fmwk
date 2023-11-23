@@ -14,6 +14,7 @@ import { Ticket } from '../models/Ticket';
 import { AppParam } from '../util/AppParam';
 import * as M from 'materialize-css';
 import { Subscription } from 'rxjs';
+import { StrippedUser } from '../models/StrippedUser';
 
 @Component({
   selector: 'app-ticket-create',
@@ -25,7 +26,7 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ticket!: Ticket;
   edit: boolean = false;
-  users!: { username: string; id: number }[];
+  users!: Promise<StrippedUser[]>;
   paramSubstcription!: Subscription;
 
   usernamePattern: any = { U: { pattern: new RegExp('[0-9A-Za-z.]') } };
@@ -38,6 +39,7 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute
   ) {
     this.users = userService.listUsers();
+    console.log(this.users);
   }
   ngAfterViewInit(): void {
     setTimeout(() => {

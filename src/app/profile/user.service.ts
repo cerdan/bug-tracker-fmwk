@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 import { WebStorageUtil } from '../util/WebStorageUtil';
 import { AppParam } from '../util/AppParam';
 import { firstValueFrom } from 'rxjs';
+import { StrippedUser } from '../models/StrippedUser';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ import { firstValueFrom } from 'rxjs';
 export class UserService {
   user?: User;
   users!: User[];
+  usersPromise!: Promise<StrippedUser[]>;
 
   URL = 'http://localhost:3000/users';
 
@@ -88,13 +90,15 @@ export class UserService {
     return firstValueFrom(users$);
   }
 
-  listUsers() {
-    this.get().then((u) => (this.users = u));
-
-    let list: { username: string; id: number }[] = [];
-    this.users.forEach((u) => {
-      list.push({ username: u.username, id: u.id });
+  listUsers(): Promise<StrippedUser[]> {
+    return new Promise<StrippedUser[]>((resolve, reject) => {
+      this.get().then((users) => {
+        let list: StrippedUser[] = [];
+        users.forEach((u) => {
+          list.push({ username: u.username, id: u.id });
+        });
+        resolve(list);
+      });
     });
-    return list;
   }
 }

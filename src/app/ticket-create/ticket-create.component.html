@@ -1,7 +1,7 @@
 <div class="valign-wrapper" style="flex: 1 0 auto">
   <div class="container">
     <div class="row">
-      <h5 class="col offset-s4">Cadastrar usuário no sistema.</h5>
+      <h5 class="col offset-s4">Cadastrar ticket no sistema.</h5>
     </div>
     <div class="row">
       <div id="feedback" class="red lighten-1 white-text" hidden>teste</div>
@@ -76,7 +76,7 @@
               #attributed="ngModel"
             >
               <option disabled>Usuários:</option>
-              <option *ngFor="let u of this.users" [ngValue]="u.id">
+              <option *ngFor="let u of this.users | async" [ngValue]="u.id">
                 {{ u.username }}
               </option></select
             ><label for="attributedTo">Atribuir à</label>
