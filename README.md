@@ -27,12 +27,12 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Passar dados entre componentes que representam diferentes telas via parâmetros de rotas.
 - [x] Validar campos do formulário com REGEX e apresentar os erros.
 - [x] Desabilitar o botão de submit enquanto o formulário está inválido.
-- [ ] Fazer requisições a API com tratamento da resposta com Promises ou Observables.
-- [ ] Cadastrar uma entidade no JSON Server.
+- [x] Fazer requisições a API com tratamento da resposta com Promises ou Observables.
+- [x] Cadastrar uma entidade no JSON Server.
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf
 - [ ] Formatar a apresentação de dados com Pipes.
-- [ ] Build e deploy da aplicação.
+- [x] Build e deploy da aplicação.
 
 # Atividades
 ## Atividade 08
@@ -58,6 +58,15 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Transferir dados, por meio de serviços, entre componentes que não estão diretamente relacionados.
 - [x] Cadastrar uma entidade no JSON Server.
 - [x] Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários.
+
+## Atividade 14
+- [x] Build e deploy da aplicação em um servidor remoto
+
+## Atividade 13
+- [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
+- [x] Usar a diretiva estrutural ngIf para mostrar ou esconder elementos.
+- [ ] Formatar a apresentação de dados com Pipes.
+- [ ] Fazer requisições a API com tratamento da resposta com Observables.
 
 ## Manual de execução
 - Clonar o repositório com `git clone`
