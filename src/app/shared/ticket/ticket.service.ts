@@ -34,10 +34,10 @@ export class TicketService {
     this.save(Ticket);
   }
 
-  getAssignedTo(user: User) {
+  getAssignedTo(userId: number) {
     this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
     return this.Tickets.filter((t) => {
-      return t.attributedTo?.valueOf() == user?.id?.valueOf();
+      return t.attributedTo?.valueOf() == userId?.valueOf();
     });
   }
   
