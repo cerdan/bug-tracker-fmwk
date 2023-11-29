@@ -31,7 +31,7 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Cadastrar uma entidade no JSON Server.
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf
-- [ ] Formatar a apresentação de dados com Pipes.
+- [x] Formatar a apresentação de dados com Pipes.
 - [x] Build e deploy da aplicação.
 
 # Atividades
@@ -65,7 +65,7 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 ## Atividade 13
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva estrutural ngIf para mostrar ou esconder elementos.
-- [ ] Formatar a apresentação de dados com Pipes.
+- [x] Formatar a apresentação de dados com Pipes.
 - [ ] Fazer requisições a API com tratamento da resposta com Observables.
 
 ## Manual de execução

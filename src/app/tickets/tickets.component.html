@@ -3,10 +3,10 @@
     class="light-green lighten-3 center-align border-solid-dark-purple round-rect"
     *ngIf="this.username"
   >
-    <h3 class="no-margin">Atribuídos à {{ this.username }}</h3>
+    <h3 class="no-margin">Atribuídos à {{ this.username | uppercase}}</h3>
   </div>
   <app-ticket *ngFor="let t of tickets" [ticket]="t">
-    <header>{{ t.title }}</header>
+    <header>{{ t.title | titlecase}}</header>
     <section>{{ t.description }}</section>
   </app-ticket>
   <div class="fixed-action-btn">

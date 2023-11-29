@@ -77,7 +77,7 @@
             >
               <option disabled>Usuários:</option>
               <option *ngFor="let u of this.users | async" [ngValue]="u.id">
-                {{ u.username }}
+                {{ u.username | uppercase}}
               </option></select
             ><label for="attributedTo">Atribuir à</label>
             <div
