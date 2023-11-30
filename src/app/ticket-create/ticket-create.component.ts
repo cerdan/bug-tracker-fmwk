@@ -8,6 +8,7 @@ import {
   OnInit,
   AfterViewInit,
   OnDestroy,
+  ElementRef,
 } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Ticket } from '../models/Ticket';
@@ -23,6 +24,7 @@ import { StrippedUser } from '../models/StrippedUser';
 })
 export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('form') form!: NgForm;
+  @ViewChild('descElem') description!: ElementRef;
 
   ticket!: Ticket;
   edit: boolean = false;
@@ -39,11 +41,10 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute
   ) {
     this.users = userService.listUsers();
-    console.log(this.users);
   }
   ngAfterViewInit(): void {
     setTimeout(() => {
-      var instances = M.FormSelect.init(document.querySelectorAll('select'));
+      M.FormSelect.init(document.querySelectorAll('select'));
     }, 10);
   }
 
@@ -59,6 +60,10 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
           this.ticket = Ticket.clone(
             this.ticketService.getTicket(params['tId'])
           );
+          setTimeout(() => {
+            M.updateTextFields();
+            M.textareaAutoResize(this.description.nativeElement);
+          }, 1);
         } else {
           this.ticket = new Ticket(0, '', '', '', 0, '');
         }

@@ -90,15 +90,16 @@
         </div>
         <div class="row">
           <div class="input-field col s8 offset-m2">
-            <input
+            <textarea
               type="text"
               name="description"
               id="description"
               [(ngModel)]="this.ticket.description"
-              class="validate"
+              class="materialize-textarea"
               #desc="ngModel"
+              #descElem
               required
-            /><label for="description">Descrição *</label>
+            ></textarea><label for="description">Descrição *</label>
             <div class="red-text" [hidden]="desc.valid || desc.untouched">
               É necessário infomar uma descrição.
             </div>

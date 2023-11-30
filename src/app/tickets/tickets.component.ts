@@ -26,9 +26,7 @@ export class TicketsComponent implements OnInit {
     this.username = WebStorageUtil.get(AppParam.CUR_USER_KEY);
     this.userService.getUserId(this.username).then((userId) => {
       this.tickets = ticketService.getAssignedTo(userId);
-      console.log(this.username);
-      console.log(userId);
-      console.log(this.tickets)
+
     });
   }
 

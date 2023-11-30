@@ -1,6 +1,7 @@
 import { UserService } from './user.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {
+  AfterViewInit,
   Component,
   EventEmitter,
   OnDestroy,
@@ -13,6 +14,7 @@ import { WebStorageUtil } from '../util/WebStorageUtil';
 import { AppParam } from '../util/AppParam';
 import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-profile',
@@ -55,6 +57,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
             .getUserByUsername(WebStorageUtil.get(AppParam.CUR_USER_KEY))
             .then((user: User[]) => {
               this.user = User.clone(user[0]);
+              setTimeout(() => {
+                M.updateTextFields();
+              }, 1);
             })
             .catch(() => alert('Usuário não encontrado'));
         } else {
