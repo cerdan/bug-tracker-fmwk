@@ -27,30 +27,30 @@
   ],
   "tickets": [
     {
-      "id": "1",
+      "id": 789301,
       "title": "Ticket teste",
       "severity": "High",
-      "affected-item": "Página WEB",
-      "userId": "1",
-      "assignedTo": "1",
+      "affectedItem": "Página WEB",
+      "userId": 944881,
+      "assignedTo": 942635,
       "description": "A página de login não está carregando."
     },
     {
-      "id": "2",
+      "id": 987775,
       "title": "Ticket teste 2",
       "severity": "High",
-      "affected-item": "Página WEB",
-      "userId": "1",
-      "assignedTo": "1",
+      "affectedItem": "Página WEB",
+      "userId": 796543,
+      "assignedTo": 942635,
       "description": "A página de login não está carregando."
     },
     {
-      "id": "3",
+      "id": 365781,
       "title": "Ticket teste 3",
       "severity": "High",
       "affectedItem": "Página WEB",
-      "userId": "1",
-      "assignedTo": "1",
+      "userId": 796543,
+      "assignedTo": 942635,
       "description": "A página de login não está carregando."
     }
   ],
