@@ -1,5 +1,6 @@
 {
     "/users/:username": "/users?username=:username",
     "/users/cpf/:cpf": "/users?cpf=:cpf",
-    "/users/id/:id": "/users/:id"
+    "/users/id/:id": "/users/:id",
+    "/tickets/assignedTo/:id": "/tickets?attributedTo=:id"
   }
