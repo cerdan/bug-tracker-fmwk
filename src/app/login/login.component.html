@@ -1,0 +1,54 @@
+<div class="valign-wrapper" style="flex: 1 0 auto">
+  <div class="container">
+    <div class="row">
+      <h5 class="col offset-s3">Entrar no sistema.</h5>
+    </div>
+    <div class="row">
+      <div id="feedback" class="red lighten-1 white-text" [hidden]="!this.message">{{this.message}}</div>
+      <form action="/ticket" class="col s8 offset-s3">
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="validate"
+              mask="AUUUUUUUUUUUUU||000.000.000-00"
+              [patterns]="usernamePattern"
+              [specialCharacters]="['-','.']"
+              [dropSpecialCharacters]="false"
+              #usernameField
+            /><label for="username">Usuário (Nome ou CPF)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="validate"
+              #passwordField
+            /><label for="password">Senha</label>
+          </div>
+        </div>
+      </form>
+      <div class="row center-align">
+        <button
+          type="submit"
+          class="btn waves-effect waves-light deep-purple darken-4 col s3 text-bold offset-s2"
+          (click) = "this.onClickLogin()"
+        >
+          ENTRAR
+        </button>
+        <button
+          type="button"
+          routerLink="/profile"
+          class="btn waves-effect waves-light deep-purple-text text-darken-4 col offset-m1 s4 border-only text-bold"
+        >
+          CADASTRAR
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

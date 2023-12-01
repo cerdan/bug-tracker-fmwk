@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 944881,
+      "username": "admin",
+      "name": "Administrator",
+      "email": "admin@admin.com",
+      "password": "admin",
+      "cpf": "000.000.000-00"
+    },
+    {
+      "id": 942635,
+      "username": "fillipe",
+      "name": "fillipe cerdan",
+      "email": "fillipe.cerdan@gmail.com",
+      "password": "cerdan",
+      "cpf": "123.321.123-99"
+    },
+    {
+      "id": 796543,
+      "name": "A",
+      "email": "A@A.com",
+      "username": "A",
+      "password": "A",
+      "cpf": "111.111.111-11"
+    }
+  ],
+  "tickets": [
+    {
+      "id": 789301,
+      "title": "Ticket teste",
+      "severity": "H",
+      "affectedItem": "Página WEB",
+      "userId": 944881,
+      "assignedTo": 942635,
+      "description": "A página de login não está carregando."
+    },
+    {
+      "id": 987775,
+      "title": "Ticket teste 2",
+      "severity": "H",
+      "affectedItem": "Página WEB",
+      "userId": 796543,
+      "assignedTo": 942635,
+      "description": "A página de login não está carregando."
+    },
+    {
+      "id": 365781,
+      "title": "Ticket teste 3",
+      "severity": "H",
+      "affectedItem": "Página WEB",
+      "userId": 796543,
+      "assignedTo": 942635,
+      "description": "A página de login não está carregando."
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "parent": "1",
+      "userId": "1",
+      "content": "Alterações realizadas!"
+    }
+  ]
+}

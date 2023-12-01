@@ -1,0 +1,17 @@
+<div class="container" style="padding-top: 2em">
+  <div
+    class="light-green lighten-3 center-align border-solid-dark-purple round-rect"
+    *ngIf="this.username"
+  >
+    <h3 class="no-margin">Atribuídos à {{ this.username | uppercase}}</h3>
+  </div>
+  <app-ticket *ngFor="let t of tickets" [ticket]="t">
+    <header>{{ t.title | titlecase}}</header>
+    <section>{{ t.description }}</section>
+  </app-ticket>
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large deep-purple darken-4" routerLink='/create'>
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~materialize-css/dist/css/materialize.min.css";
+@import "~material-icons/iconfont/material-icons.css";
+
+:root {
+  --dark-purple: #311b92;
+  --med-purple: #512da8;
+  --light-purple: #ede7f6;
+  --dark-green: #33691e;
+  --med-green: #c5e1a5;
+  --light-green: #f1f8e9;
+}
+
+body {
+  min-width: 400px !important;
+  background-color: var(--light-purple);
+}
+
+.btn.border-only {
+  background-color: transparent !important;
+  border: 1px solid !important;
+  border-color: var(--dark-purple);
+}
+
+.btn.border-only.light {
+  background-color: transparent !important;
+  border: 1px solid !important;
+  border-color: var(--med-purple);
+}
+
+/* label focus color */
+.input-field input:focus + label {
+  color: var(--dark-purple) !important;
+}
+
+/* label underline focus color */
+.row .input-field input:focus {
+  border-bottom: 1px solid !important;
+  border-bottom-color: var(--dark-purple) !important;
+  box-shadow: 0 1px 0 0 var(--dark-purple) !important;
+}
+
+/* Fixed Action Button Position */
+.fixed-action-btn{
+  bottom: 75px;
+}
+
+/**/
+.ticket{
+  margin-top: 0.5em;
+}
+
+/* HELPERS */
+.round-rect{
+    border-radius: 25px;
+}
+
+.round-rect-small{
+  border-radius: 8px;
+}
+
+.border-solid-dark-purple{
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--dark-purple);
+}
+
+.no-margin{
+    margin: 0px;
+}
+
+.line-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.limit-2-lines{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.limit-3-lines{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}

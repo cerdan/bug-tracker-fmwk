@@ -1,0 +1,10 @@
+:host{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete:disabled{
+  background-color: #ff80ab !important;
+  color: #fce4ec !important;
+}
