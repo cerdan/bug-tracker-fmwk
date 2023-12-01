@@ -66,7 +66,7 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva estrutural ngIf para mostrar ou esconder elementos.
 - [x] Formatar a apresentação de dados com Pipes.
-- [ ] Fazer requisições a API com tratamento da resposta com Observables.
+- [x] Fazer requisições a API com tratamento da resposta com Observables.
 
 ## Manual de execução
 - Clonar o repositório com `git clone`

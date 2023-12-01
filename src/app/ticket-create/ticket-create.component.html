@@ -6,9 +6,10 @@
     <div class="row">
       <div id="feedback" class="red lighten-1 white-text" hidden>teste</div>
       <form #form="ngForm" class="col s8 offset-s4 m12" (submit)="onSubmit()">
-        <div class="row">
-          <div class="input-field col s8 m6">
-            <input
+        <div *ngIf="this.ticket$ | async as tkt">
+          <div class="row">
+            <div class="input-field col s8 m6">
+              <input
               type="text"
               name="title"
               id="title"
@@ -17,80 +18,80 @@
               class="validate"
               #title="ngModel"
               required
-            /><label for="title">Título *</label>
-            <div class="red-text" [hidden]="title.valid || title.untouched">
-              É necessário infomar um título com no máximo 30 caracteres.
+              /><label for="title">Título *</label>
+              <div class="red-text" [hidden]="title.valid || title.untouched">
+                É necessário infomar um título com no máximo 30 caracteres.
+              </div>
             </div>
-          </div>
-          <!-- </div>
-        <div class="row"> -->
+            <!-- </div>
+              <div class="row"> -->
           <div class="input-field col s8 m6">
             <select
-              name="severity"
-              id="severity"
-              [(ngModel)]="this.ticket.severity"
-              class="validate"
-              #severity="ngModel"
+            name="severity"
+            id="severity"
+            [(ngModel)]="this.ticket.severity"
+            class="validate"
+            #severity="ngModel"
             >
-              <option></option>
-              <option>LL</option>
-              <option>L</option>
-              <option>M</option>
-              <option>H</option>
-              <option>HH</option>
-            </select>
-            <label for="severity">Severidade (LL, L, M, H, HH)</label>
-            <div class="red-text" [hidden]="severity.valid">
-              A severidade deve receber um dos seguintes valores: LL, L, M, H ou
-              HH
-            </div>
+            <option></option>
+            <option>LL</option>
+            <option>L</option>
+            <option>M</option>
+            <option>H</option>
+            <option>HH</option>
+          </select>
+          <label for="severity">Severidade (LL, L, M, H, HH)</label>
+          <div class="red-text" [hidden]="severity.valid">
+            A severidade deve receber um dos seguintes valores: LL, L, M, H ou
+            HH
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s8 m6">
-            <input
-              type="text"
-              name="affectedItem"
-              id="affectedItem"
-              pattern="[a-zA-zà-ú ]{1,30}"
-              [(ngModel)]="this.ticket.affectedItem"
+      </div>
+      <div class="row">
+        <div class="input-field col s8 m6">
+          <input
+          type="text"
+          name="affectedItem"
+          id="affectedItem"
+          pattern="[a-zA-zà-ú ]{1,30}"
+          [(ngModel)]="this.ticket.affectedItem"
               class="validate"
               #affected="ngModel"
               required
-            /><label for="affectedItem">Item afetado *</label>
-            <div
+              /><label for="affectedItem">Item afetado *</label>
+              <div
               class="red-text"
               [hidden]="affected.valid || affected.untouched"
-            >
+              >
               É necessário infomar o local afetado com no máximo 30 caracteres.
             </div>
           </div>
           <!-- </div>
-        <div class="row"> -->
-          <div class="input-field col s8 m6">
-            <select
-              name="assignedTo"
-              id="assignedTo"
-              [(ngModel)]="this.ticket.assignedTo"
-              [class]="'validate' + (attributed.value=='')?' valid':' invalid' "
-              #attributed="ngModel"
-            >
-              <option disabled>Usuários:</option>
-              <option *ngFor="let u of this.users | async" [ngValue]="u.id">
-                {{ u.username | uppercase}}
-              </option></select
-            ><label for="assignedTo">Atribuir à</label>
-            <div
-              class="red-text"
-              [hidden]="attributed.value != ''"
-            >
-              É necessário infomar um usuário.
+            <div class="row"> -->
+              <div class="input-field col s8 m6">
+                <select
+                name="assignedTo"
+                id="assignedTo"
+                [(ngModel)]="this.ticket.assignedTo"
+                [class]="'validate' + (attributed.value=='')?' valid':' invalid' "
+                #attributed="ngModel"
+                >
+                <option disabled>Usuários:</option>
+                <option *ngFor="let u of this.users | async" [ngValue]="u.id">
+                  {{ u.username | uppercase}}
+                </option></select
+                ><label for="assignedTo">Atribuir à</label>
+                <div
+                class="red-text"
+                [hidden]="attributed.value != ''"
+                >
+                É necessário infomar um usuário.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8 offset-m2">
-            <textarea
+          <div class="row">
+            <div class="input-field col s8 offset-m2">
+              <textarea
               type="text"
               name="description"
               id="description"
@@ -99,29 +100,30 @@
               #desc="ngModel"
               #descElem
               required
-            ></textarea><label for="description">Descrição *</label>
-            <div class="red-text" [hidden]="desc.valid || desc.untouched">
-              É necessário infomar uma descrição.
+              ></textarea><label for="description">Descrição *</label>
+              <div class="red-text" [hidden]="desc.valid || desc.untouched">
+                É necessário infomar uma descrição.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row center-align">
-          <button
+          <div class="row center-align">
+            <button
             type="submit"
             class="btn waves-effect waves-light deep-purple darken-4 col s4 offset-m2 text-bold"
             [disabled]="!form.valid || attributed.value == ''"
-          >
+            >
             ENVIAR
           </button>
           <button
-            type="button"
-            routerLink="/"
-            class="btn waves-effect waves-light deep-purple-text text-darken-4 col offset-m1 s3 border-only text-bold"
+          type="button"
+          routerLink="/ticket"
+          class="btn waves-effect waves-light deep-purple-text text-darken-4 col offset-m1 s3 border-only text-bold"
           >
-            CANCELAR
-          </button>
-        </div>
-      </form>
+          CANCELAR
+        </button>
+      </div>
     </div>
+    </form>
   </div>
+</div>
 </div>

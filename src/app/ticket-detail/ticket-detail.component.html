@@ -1,5 +1,5 @@
 <div class="valign-wrapper" style="flex: 1 0 auto">
-  <div class="container">
+  <div class="container" *ngIf="ticket$ | async as ticket">
     <div class="row">
       <h5 class="col offset-s4">{{ ticket.title }}</h5>
     </div>
@@ -10,7 +10,7 @@
             <tr class="center">
               <h6>Criado por:</h6>
             </tr>
-            <tr class="center">{{ ownerName }}</tr>
+            <tr class="center">{{ ownerName | async }}</tr>
           </td>
         </table>
         <!-- </div>
@@ -24,7 +24,7 @@
             </tr>
             <tr class="center">
               {{
-                assignedTo
+                assignedTo | async
               }}
             </tr>
           </td>
