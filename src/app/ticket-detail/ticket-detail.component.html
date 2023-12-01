@@ -1,1 +1,83 @@
-<p>ticket-detail works!</p>
+<div class="valign-wrapper" style="flex: 1 0 auto">
+  <div class="container">
+    <div class="row">
+      <h5 class="col offset-s4">{{ ticket.title }}</h5>
+    </div>
+    <div class="row">
+      <div class="col s8 m6">
+        <table style="display: block !important">
+          <td>
+            <tr class="center">
+              <h6>Criado por:</h6>
+            </tr>
+            <tr class="center">{{ ownerName }}</tr>
+          </td>
+        </table>
+        <!-- </div>
+          <div class="row"> -->
+      </div>
+      <div class="col s8 m6">
+        <table>
+          <td>
+            <tr class="center">
+              <h6>Atribuído a</h6>
+            </tr>
+            <tr class="center">
+              {{
+                assignedTo
+              }}
+            </tr>
+          </td>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s8 m6">
+        <table>
+          <td>
+            <tr class="center">
+              <h6>Severidade:</h6>
+            </tr>
+            <tr class="center">
+              {{
+                ticket.severity
+              }}
+            </tr>
+          </td>
+        </table>
+      </div>
+      <!-- </div>
+        <div class="row"> -->
+          <div class="col s8 m6">
+            <table>
+              <td>
+            <tr class="center">
+              <h6>Item afetado:</h6>
+            </tr>
+            <tr class="center">
+              {{
+                ticket.affectedItem
+              }}
+            </tr>
+          </td>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s8 offset-m2">
+        <table>
+          <td>
+            <tr class="center">
+              <h6>Descrição:</h6>
+            </tr>
+            <tr class="center">
+              {{
+                ticket.description
+              }}
+            </tr>
+          </td>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

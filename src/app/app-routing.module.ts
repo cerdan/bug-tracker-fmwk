@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { TicketCreateComponent as CreateTicketComponent } from './ticket-create/ticket-create.component'
+import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
 
 const routes: Routes = [
   {path: 'index', component: LandingComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'ticket', component: TicketsComponent},
   {path: 'create', component: CreateTicketComponent},
+  {path: 'show/:id', component: TicketDetailComponent},
   {path: '', redirectTo: 'index', pathMatch: 'full'},
 ];
 

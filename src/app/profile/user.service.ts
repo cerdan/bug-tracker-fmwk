@@ -65,6 +65,11 @@ export class UserService {
     return firstValueFrom(users$);
   }
 
+  getUserById(id: number): Promise<User | undefined> {
+    const users$ = this.httpClient.get<User>(`${this.URL}/id/${id}`);
+    return firstValueFrom(users$);
+  }
+
   exists(username: string): Promise<void> {
     return new Promise((resolve, reject) => {
       this.getUserByUsername(username)
@@ -82,6 +87,16 @@ export class UserService {
           resolve(u![0].id);
         })
         .catch(() => reject(0));
+    });
+  }
+
+  getUsername(id: number): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+      this.getUserById(id)
+        .then((u) => {
+          resolve(u!.username);
+        })
+        .catch(() => reject("k"));
     });
   }
 
