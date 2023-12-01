@@ -37,7 +37,7 @@ export class TicketService {
   getAssignedTo(userId: number) {
     this.Tickets = WebStorageUtil.get(AppParam.TBL_TICKETS);
     return this.Tickets.filter((t) => {
-      return t.attributedTo?.valueOf() == userId?.valueOf();
+      return t.assignedTo?.valueOf() == userId?.valueOf();
     });
   }
   

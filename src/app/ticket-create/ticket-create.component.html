@@ -69,9 +69,9 @@
         <div class="row"> -->
           <div class="input-field col s8 m6">
             <select
-              name="attributedTo"
-              id="attributedTo"
-              [(ngModel)]="this.ticket.attributedTo"
+              name="assignedTo"
+              id="assignedTo"
+              [(ngModel)]="this.ticket.assignedTo"
               [class]="'validate' + (attributed.value=='')?' valid':' invalid' "
               #attributed="ngModel"
             >
@@ -79,7 +79,7 @@
               <option *ngFor="let u of this.users | async" [ngValue]="u.id">
                 {{ u.username | uppercase}}
               </option></select
-            ><label for="attributedTo">Atribuir à</label>
+            ><label for="assignedTo">Atribuir à</label>
             <div
               class="red-text"
               [hidden]="attributed.value != ''"

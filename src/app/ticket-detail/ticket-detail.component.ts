@@ -40,7 +40,7 @@ export class TicketDetailComponent implements OnInit {
 
         // Get username from assigned Id
       this.userService
-        .getUsername(this.ticket.attributedTo)
+        .getUsername(this.ticket.assignedTo)
         .then((u) => {
           this.assignedTo = u;
         })

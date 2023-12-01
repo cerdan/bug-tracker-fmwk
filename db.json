@@ -32,7 +32,7 @@
       "severity": "High",
       "affected-item": "Página WEB",
       "userId": "1",
-      "attributedTo": "1",
+      "assignedTo": "1",
       "description": "A página de login não está carregando."
     },
     {
@@ -41,7 +41,7 @@
       "severity": "High",
       "affected-item": "Página WEB",
       "userId": "1",
-      "attributedTo": "1",
+      "assignedTo": "1",
       "description": "A página de login não está carregando."
     },
     {
@@ -50,7 +50,7 @@
       "severity": "High",
       "affectedItem": "Página WEB",
       "userId": "1",
-      "attributedTo": "1",
+      "assignedTo": "1",
       "description": "A página de login não está carregando."
     }
   ],
