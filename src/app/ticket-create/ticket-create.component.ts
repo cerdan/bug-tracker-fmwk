@@ -96,11 +96,9 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
       })
       .catch(() => (this.ticket.userId = 0))
       .finally(() => {
-        console.log(this.ticket.userId + ' ' + this.edit);
-        console.log(this.ticket);
         if (this.edit)
-          this.ticketService.update(this.ticket).subscribe().unsubscribe();
-        else this.ticketService.save(this.ticket).subscribe().unsubscribe();
+          this.ticketService.update(this.ticket).subscribe();
+        else this.ticketService.save(this.ticket).subscribe();
         this.form.reset();
         this.ticket = new Ticket(0, '', '', '', 0, '');
         this.router.navigate(['ticket']);
