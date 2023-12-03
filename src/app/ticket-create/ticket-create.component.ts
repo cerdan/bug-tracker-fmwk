@@ -96,6 +96,7 @@ export class TicketCreateComponent implements OnInit, AfterViewInit, OnDestroy {
       })
       .catch(() => (this.ticket.userId = 0))
       .finally(() => {
+
         if (this.edit)
           this.ticketService.update(this.ticket).subscribe();
         else this.ticketService.save(this.ticket).subscribe();
