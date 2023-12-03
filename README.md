@@ -13,6 +13,10 @@ https://cerdan.github.io/bug-tracker-fmwk/
 
 https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 
+## Vídeo do projeto
+
+https://drive.google.com/file/d/1Z4TdkLJKuEVQJUYW7jQrVbpuhel9x6lx/edit
+
 ## Checklist
 
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
@@ -67,6 +71,9 @@ https://www.figma.com/file/nbK2FjAkicUd4ijxTWy3tA
 - [x] Usar a diretiva estrutural ngIf para mostrar ou esconder elementos.
 - [x] Formatar a apresentação de dados com Pipes.
 - [x] Fazer requisições a API com tratamento da resposta com Observables.
+
+## Projeto Final
+- [x] Disponibilização do vídeo mostrando o funcionamento da aplicação.
 
 ## Manual de execução
 - Clonar o repositório com `git clone`
