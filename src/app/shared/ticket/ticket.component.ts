@@ -25,8 +25,7 @@ export class TicketComponent implements OnInit {
       $event.stopPropagation();
       return;
     }
-    this.ticketService.delete(this.ticket!.id).subscribe();
-    location.reload();
+    this.ticketService.delete(this.ticket!.id).subscribe(()=>location.reload());
     $event.stopPropagation();
   }
   
